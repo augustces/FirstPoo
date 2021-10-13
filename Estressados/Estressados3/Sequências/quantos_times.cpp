@@ -29,7 +29,7 @@ int quantosTimes ( const std::vector<int>& vetor )
 }
 
 int main() {
-    std::cout << quantosTimes( {2, 3, 6, -2, -8, 5, -9, -3, -4, 9, 2} ) << '\n'; // 4
+    std::cout << quantosTimes( {2, 3, 6, -2, -8, 5, -9, -3, 4, 9, -2} ) << '\n'; // 4
 
     std::cout << quantosTimes( {6, -5, -9, 6, -3, 6, 5, 3, -8, -2} ) << '\n'; // 3
 

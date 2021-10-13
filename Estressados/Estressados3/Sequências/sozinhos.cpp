@@ -13,13 +13,13 @@ int sozinhos ( const std::vector<int>& vetor )
                 sozinhos++;
         }
         else if ( i == ( (int) vetor.size() - 1 ) ) {
-			if ( vetor[ i ] > 0 && vetor[ i - 1 ] < 0 )
+	    if ( vetor[ i ] > 0 && vetor[ i - 1 ] < 0 )
                 sozinhos++;
             else if ( vetor[ i ] < 0 && vetor[ i - 1 ] > 0 )
                 sozinhos++;
         }
         else {
-			if ( vetor[ i ] > 0 && vetor[ i + 1 ] < 0 && vetor[ i - 1 ] < 0 )
+            if ( vetor[ i ] > 0 && vetor[ i + 1 ] < 0 && vetor[ i - 1 ] < 0 )
                 sozinhos++;
             else if ( vetor[ i ] < 0 && vetor[ i + 1 ] > 0 && vetor[ i - 1 ] > 0 )
                 sozinhos++;

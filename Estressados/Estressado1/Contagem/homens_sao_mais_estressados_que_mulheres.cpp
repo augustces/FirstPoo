@@ -20,7 +20,7 @@ std::string maishoum(std::vector<int> vetor)
         contm++;
     }
 
-    if ((somam / contm) >= (somah / conth))
+    if ((somam / contm) >= (somah / conth) || vetor.empty() == true )
         return "não";
     else
         return "sim";

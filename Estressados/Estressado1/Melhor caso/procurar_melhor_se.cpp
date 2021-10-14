@@ -4,7 +4,7 @@
 
 int procurar_melhor(std::vector<int> vetor)
 {
-    int pos{};
+    int pos{-1};
     int valor{99};
     for (int i = 0; i < (int)vetor.size(); i++)
     {

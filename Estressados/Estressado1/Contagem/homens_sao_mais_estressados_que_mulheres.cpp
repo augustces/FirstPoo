@@ -20,7 +20,7 @@ std::string maishoum(std::vector<int> vetor)
         contm++;
     }
 
-    if ((somam / contm) >= (somah / conth))
+    if ((somam / contm) >= (somah / conth) || vetor.empty() == true )
         return "não";
     else
         return "sim";
@@ -32,7 +32,7 @@ int main()
 
     std::cout << maishoum({-10, 42, -2, -7, -8, 9}) << '\n'; //sim
 
-    std::cout << maishoum({7, 21, 4, -99, -3, 5}) << '\n'; //não
+    std::cout << maishoum({}) << '\n'; //não
 
     return 0;
 }

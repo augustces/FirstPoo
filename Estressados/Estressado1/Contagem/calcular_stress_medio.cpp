@@ -9,7 +9,10 @@ float stressmedio(std::vector<int> vetor)
     for (i = 0; i < (int) vetor.size(); i++) {
         media += abs(vetor[i]);
     }
-    return media/(i);
+    if ( i == 0 || media == 0 ) 
+        return 0;
+    else
+        return media/(i);
 }
 
 int main()
@@ -18,7 +21,7 @@ int main()
 
     std::cout << stressmedio({-10, 42, 2, -7, -8, 9}) << '\n'; //13
 
-    std::cout << stressmedio({7, 21, 4, -99, -3, 5}) << '\n'; //23.16667
+    std::cout << stressmedio({}) << '\n'; //23.16667
 
     return 0;
 }

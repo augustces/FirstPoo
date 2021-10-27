@@ -55,31 +55,30 @@ struct Lapiseira
     void remover(int value)
     {
         std::vector<Grafite> copia;
-        for ( int k { 0 }; k < (this->capacidade); k++ ) {
-            if ( k < value) {
-                Grafite auxiliar{this->grafites[k]};
-                this->grafites[k] = *new Grafite;
-            }
-            else {
-                copia.push_back( this->grafites[ k ] );
-            }            
-        }
         for ( int k{ 0 }; k < value; k++) 
-            copia.push_back( 0 );
+                    this->grafites[k].dureza = "null";
+
+        for (int i {0}; i < (this->capacidade) ; i++) {
+            if (this->grafites[i].dureza != "null" )
+                copia.push_back(this->grafites[i]);
+        }
+        
+        for ( int k { 0 }; k < ((this->capacidade) - 1 - value); k++) {
+            copia.push_back( 0 );           
+        }
         
         this->grafites = copia;
     }
 
-    void write(int folhas)
+    void write(int& folhas)
     {
         int contador{0};
         for ( int k { 0 }; k < (this->capacidade); k++) {
             if (this->grafites[k].dureza != "null") {
-                int value = this->grafites[k].desgastePorFolha();
                 
                 while (this->grafites[k].tamanho != 0 && folhas != 0)
                 {
-
+                    int value = this->grafites[k].desgastePorFolha();
                     if ((this->grafites[k].tamanho - value) > 0)
                     {
                         this->grafites[k].tamanho -= value;
@@ -88,6 +87,8 @@ struct Lapiseira
                     }
                     else if ((this->grafites[k].tamanho - value) == 0) {
                         contador++;
+                        this->grafites[k].tamanho -= value;
+                        folhas--;
                         this->remover(1);
                     }
                     else
@@ -95,6 +96,8 @@ struct Lapiseira
                         this->remover(1);   
                     } 
                 }
+                if (folhas == 0)
+                    break;
             }
             else {
                 std::cout << "fail: folhas escritas completas: " << contador << '\n';
